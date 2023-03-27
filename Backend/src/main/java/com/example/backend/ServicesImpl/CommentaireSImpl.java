@@ -1,7 +1,9 @@
 package com.example.backend.ServicesImpl;
 
 import com.example.backend.Entities.Commentaire;
+import com.example.backend.Entities.Post;
 import com.example.backend.Repositories.CommentaireRepo;
+import com.example.backend.Repositories.PosteRepo;
 import com.example.backend.Services.CommentaireSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class CommentaireSImpl implements CommentaireSer {
+    @Autowired
+    private PosteRepo reo2;
     @Autowired
     private CommentaireRepo repo;
 
@@ -19,21 +23,23 @@ public class CommentaireSImpl implements CommentaireSer {
 
     @Override
     public Commentaire update(Commentaire s) {
-        return null;
+        return repo.save(s);
     }
 
     @Override
     public List<Commentaire> getAll() {
-        return null;
+        return repo.findAll();
     }
 
     @Override
     public Commentaire getById(int id) {
-        return null;
+        return repo.findById(id).orElse(null);
     }
 
     @Override
-    public void remove(long id) {
+    public void remove(int id) { repo.deleteById(id);
 
     }
+
+    
 }

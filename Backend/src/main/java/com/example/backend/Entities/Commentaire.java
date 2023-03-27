@@ -24,6 +24,8 @@ public class Commentaire {
     User user;
     @OneToMany(mappedBy = "commentaire")
     List<Reaction>reactions;
+    @ManyToOne
+    Post post;
 
 
 }
