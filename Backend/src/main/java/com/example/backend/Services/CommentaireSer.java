@@ -11,6 +11,7 @@ public interface CommentaireSer {
     List<Commentaire> getAll();
 
     Commentaire getById(int id);
-    void remove(long id);
+    void remove(int id);
+
 
 }
