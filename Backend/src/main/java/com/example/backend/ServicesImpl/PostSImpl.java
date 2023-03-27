@@ -15,7 +15,7 @@ public class PostSImpl implements PostService {
 
     @Override
     public void add(Post s) {
-
+        repo.save(s);
     }
 
     @Override
