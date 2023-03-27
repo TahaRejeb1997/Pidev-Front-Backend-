@@ -20,21 +20,21 @@ public class PostSImpl implements PostService {
 
     @Override
     public Post update(Post s) {
-        return null;
+        return repo.save(s);
     }
 
     @Override
     public List<Post> getAll() {
-        return null;
+        return repo.findAll();
     }
 
     @Override
     public Post getById(int id) {
-        return null;
+        return repo.findById(id).orElse(null);
     }
 
     @Override
-    public void remove(long id) {
-
+    public void remove(int id) {
+        repo.deleteById(id);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.backend.Entities;
 
 public enum TypePost {
-    video,
+    video ,
     article,
     article_and_video
 }
