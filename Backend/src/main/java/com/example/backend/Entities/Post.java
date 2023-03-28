@@ -18,6 +18,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int IdPostes;
+
     String TitleP;
     String DescriptionP;
     Date datepostes;
@@ -27,6 +28,9 @@ public class Post {
     TypePost typePost;
     @OneToMany(mappedBy = "post")
     List<Reaction>reactions;
+    @OneToMany(mappedBy = "post")
+    List<Commentaire> commentaires;
+    int numberViews;
 
 
 }
