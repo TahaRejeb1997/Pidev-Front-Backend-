@@ -30,12 +30,21 @@ public class PostController {
     Post viewposte(@PathVariable int id)
     {
        Post p1 = postService.getById(id);
+       postService.addviwes(id);
         return p1;
     }
     @PutMapping
     Post updatePost(@RequestBody Post p ){
-        return postService.update(p);
+        Post p1 = postService.getById(p.getIdPostes());
+        p1.setDatepostes(p.getDatepostes());
+        p1.setTitleP(p.getTitleP());
+        p1.setDescriptionP(p.getDescriptionP());
+        p1.setTypePost(p.getTypePost());
+
+
+        return postService.update(p1);
     }
+
 
 
 }

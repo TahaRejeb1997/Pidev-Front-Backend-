@@ -30,6 +30,8 @@ public class ReactionController {
     }
     @PutMapping()
     Reaction updateReact(@RequestBody Reaction r ){
+        Reaction r1 = reactionService.getById(r.getIdReact());
+        r1.setTypeReact(r.getTypeReact());
         return  reactionService.update(r);
     }
 }

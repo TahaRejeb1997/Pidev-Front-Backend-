@@ -12,5 +12,7 @@ public interface PostService {
 
     Post getById(int id);
     void remove(int id);
+    void addviwes(int id);
+    List<Post> findByUser(int id);
 
 }

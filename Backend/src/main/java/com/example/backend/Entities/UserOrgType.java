@@ -23,7 +23,9 @@ public class UserOrgType {
     List<Organisation>organisations;
     @ManyToMany
     List<User>users;
-    @OneToMany(mappedBy = "userOrgType")
+    @OneToMany(mappedBy = "userOrgType",cascade = CascadeType.ALL)
     List<Post>posts;
+    @OneToMany(mappedBy = "user")
+    List<PostTopics> topics;
 
 }

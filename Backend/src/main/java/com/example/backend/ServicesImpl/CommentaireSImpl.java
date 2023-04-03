@@ -7,6 +7,7 @@ import com.example.backend.Repositories.PosteRepo;
 import com.example.backend.Services.CommentaireSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 @Service
@@ -33,7 +34,8 @@ public class CommentaireSImpl implements CommentaireSer {
 
     @Override
     public Commentaire getById(int id) {
-        return repo.findById(id).orElse(null);
+
+        return  repo.findById(id).orElse(null) ;
     }
 
     @Override
@@ -41,5 +43,16 @@ public class CommentaireSImpl implements CommentaireSer {
 
     }
 
-    
+    @Override
+    public List<Commentaire> findByPost(int idpost) {
+
+        return repo.findAllByPost_idPostesOrderByDateComment(idpost);
+    }
+
+    @Override
+    public List<Commentaire> findByUser() {
+        return null;
+    }
+
+
 }

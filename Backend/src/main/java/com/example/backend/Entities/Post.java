@@ -12,15 +12,19 @@ import java.util.List;
 @ToString
 
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+
 @Entity
+@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int IdPostes;
 
-    String TitleP;
-    String DescriptionP;
+    int idPostes;
+@Column(name = "titlep")
+    String titleP;
+@Column(name = "descriptionp")
+    String descriptionP;
+@Column(name = "datepostes")
     Date datepostes;
     @ManyToOne
     UserOrgType userOrgType;
@@ -28,9 +32,12 @@ public class Post {
     TypePost typePost;
     @OneToMany(mappedBy = "post")
     List<Reaction>reactions;
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post" , cascade = CascadeType.ALL)
     List<Commentaire> commentaires;
+    @Column(name = "number_views")
     int numberViews;
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL )
+    List<PostTopics> topics;
 
 
 }

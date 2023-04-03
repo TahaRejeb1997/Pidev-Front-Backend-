@@ -37,4 +37,20 @@ public class PostSImpl implements PostService {
     public void remove(int id) {
         repo.deleteById(id);
     }
+
+    @Override
+    public void addviwes(int id) {
+
+       Post p1 = repo.getById(id);
+       int x = p1.getNumberViews();
+
+       x=x+1;
+       p1.setNumberViews(x);
+       repo.save(p1);
+    }
+
+    @Override
+    public List<Post> findByUser(int id) {
+        return null;
+    }
 }
