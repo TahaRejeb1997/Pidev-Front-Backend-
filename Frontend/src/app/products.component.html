@@ -1,0 +1,12 @@
+<div class="title">
+  <h3 class="title">Some of our products</h3>
+</div>
+<hr>
+<div class="row">
+  <div [ngClass]="'col-md-4'" *ngFor="let product of products">
+    <app-product-item
+      (onAddCart)="addToCart($event)"
+      [product]="product">
+    </app-product-item>
+  </div>
+</div>
